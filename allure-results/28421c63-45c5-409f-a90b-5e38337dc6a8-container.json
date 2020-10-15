@@ -1,0 +1,1 @@
+{"uuid":"28421c63-45c5-409f-a90b-5e38337dc6a8","name":"com.company.qa.test.YandexMarketTest1.initPageObjects","description":"","start":1602741928086,"stop":1602741928103,"children":["1a4e2959-394c-4e23-9195-e8d291919758"],"befores":[{"name":"initPageObjects","status":"passed","stage":"finished","description":"","start":1602741928086,"stop":1602741928101}]}
