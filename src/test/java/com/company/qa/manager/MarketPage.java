@@ -45,7 +45,7 @@ public class MarketPage extends PageBase{
         }
     }
 
-    @Step("Item number: {number}")
+    @Step("Item number: {number, headLine}")
     public String getItemName(int number, String headLine) {
         WebDriverWait wait = new WebDriverWait(driver, 60, 500);
         wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//h1[contains(text(),'"+headLine+"')]"))));
@@ -54,6 +54,7 @@ public class MarketPage extends PageBase{
         System.out.println("The name of the " + number + "th Item is: " + name);
         return name;
     }
+    @Step("ProductName: {number, headLine}")
     public String getProductName(int number, String headLine) {
         WebDriverWait wait = new WebDriverWait(driver, 60, 500);
         wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//h1[contains(text(),'"+headLine+"')]"))));
@@ -71,7 +72,7 @@ public class MarketPage extends PageBase{
         }
     }
 
-    @Step("Brand: {brand}")
+    @Step("Brand: {subCategory}")
     public void selectSubCategory(String subCategory) {
         driver.findElement(By.xpath("//a[contains(text(),'" + subCategory + "')]")).click();
     }
@@ -88,7 +89,7 @@ public class MarketPage extends PageBase{
     }
     @Step
     public void goToMarket() {
-        marketLink.click();
+        driver.findElement(By.xpath("//div[contains(text(),'Маркет')]")).click();
         switchToNewTab(1);
     }
     @Step

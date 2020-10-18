@@ -24,13 +24,6 @@ public class YandexMarketTest extends TestBase {
     private PageBase pageBase;
 
     String url = "https://yandex.ru/";
-//    String category = "Компьютеры";
-//    String subCategory = "Планшеты";
-//    String brand = "Apple";
-//    String priceFrom = "20000";
-//    String priceTo = "35000";
-//    Integer itemNumber = 2;
-
 
     @BeforeMethod(alwaysRun = true)
     public void initPageObjects() {
@@ -61,7 +54,6 @@ public class YandexMarketTest extends TestBase {
 
     @Test(dataProvider = "marketPositive")
     public void yandexMarketTest(Market market) {
-        System.out.println(market);
         marketPage.goToMarket();
         marketPage.selectCategory(market.getCategory());
         marketPage.selectSubCategory(market.getSubCategory());
@@ -78,6 +70,5 @@ public class YandexMarketTest extends TestBase {
     public void goOut() {
         marketPage.exit();
     }
-
 
 }
