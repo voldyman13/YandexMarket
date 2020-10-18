@@ -1,18 +1,13 @@
-package com.company.qa.market;
+package com.company.qa.manager;
 
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-
-import java.awt.*;
-import java.awt.event.KeyEvent;
-import java.util.ArrayList;
 
 
 public abstract class PageBase {
     protected WebDriver driver;
+
     public PageBase(WebDriver driver) {
         this.driver = driver;
     }

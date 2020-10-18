@@ -1,11 +1,21 @@
 package com.company.qa.tests;
 
-import com.company.qa.market.MarketPage;
-import com.company.qa.market.PageBase;
+import com.company.qa.manager.MarketPage;
+import com.company.qa.manager.PageBase;
+import com.company.qa.model.Market;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 
 public class YandexMarketTest extends TestBase {
@@ -25,12 +35,30 @@ public class YandexMarketTest extends TestBase {
     public void initPageObjects() {
         market = PageFactory.initElements(driver, MarketPage.class);
     }
+    @DataProvider
+    public Iterator<Object[]> marketPositive() throws IOException {
+        List<Object[]> list = new ArrayList<>();
+        BufferedReader reader =
+                new BufferedReader(new FileReader(new File("src/test/resources/marketPositive.csv")));
+        String line = reader.readLine();
+        while (line !=null){
+            String[] split = line.split(",");
+            list.add(new Object[]{new Market()
+                    .setCategory(split[0])
+                    .setSubCategory(split[1])
+                    .setPriceFrom(split[2])
+                    .setPriceTo(split[3])
+                    .setBrand(split[4])
+                    .setItemNumber(split[5])});
+            line= reader.readLine();
+        }
+        return list.iterator();
+    }
 
 
-//    Product product = new Product(category, subCategory, priceFrom, priceTo, brand, itemNumber);
 
-    @Test
-    public void yandexMarketTest() {
+    @Test(dataProvider = "marketPositive")
+    public void yandexMarketTest(Market mObj) {
         market.openSite(url);
         market.goToMarket();
         market.switchToNewTab();

@@ -1,5 +1,5 @@
 package com.company.qa.model;
-public class TestObject {
+public class Market {
     private String category;
     private String subCategory;
     private String priceFrom;
@@ -7,7 +7,7 @@ public class TestObject {
     private String brand;
     private Integer itemNumber;
 
-    public TestObject(String category, String subCategory, String priceFrom, String priceTo, String brand, Integer itemNumber) {
+    public Market(String category, String subCategory, String priceFrom, String priceTo, String brand, Integer itemNumber) {
         this.category = category;
         this.subCategory = subCategory;
         this.priceFrom = priceFrom;
@@ -15,7 +15,7 @@ public class TestObject {
         this.brand = brand;
         this.itemNumber = itemNumber;
     }
-    public TestObject() {}
+    public Market() {}
 
         @Override
     public String toString() {

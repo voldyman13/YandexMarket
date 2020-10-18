@@ -2,16 +2,14 @@ package com.company.qa.tests;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.*;
 
 import java.util.concurrent.TimeUnit;
 
 public class TestBase {
     protected WebDriver driver;
 
-    @BeforeMethod
+    @BeforeSuite
     public void init() {
 //    driver = new InternetExplorerDriver();
         driver = new ChromeDriver();
@@ -20,7 +18,7 @@ public class TestBase {
 
     }
 
-    @AfterMethod
+    @AfterSuite
     public void tearDown() {
         driver.quit();
     }
