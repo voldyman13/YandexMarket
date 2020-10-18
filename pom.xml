@@ -7,6 +7,10 @@
     <groupId>ru</groupId>
     <artifactId>YandexMarket</artifactId>
     <version>1.0-SNAPSHOT</version>
+
+    <name>AllureReporting</name>
+    <url>http://maven.apache.org</url>
+
     <dependencies>
         <!-- Selenium java client -->
         <dependency>
@@ -31,6 +35,16 @@
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-testng</artifactId>
             <version>${allure-testng.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-commandline</artifactId>
+            <version>2.13.5</version>
+        </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>htmlunit-driver</artifactId>
+            <version>2.36.0</version>
         </dependency>
 
     </dependencies>
@@ -109,9 +123,12 @@
             </plugin>
         </plugins>
     </build>
+
     <properties>
         <maven-surefire-plugin.version>2.20.1</maven-surefire-plugin.version>
         <aspectj.version>1.8.10</aspectj.version>
         <allure-testng.version>2.6.0</allure-testng.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
 </project>

@@ -13,7 +13,7 @@ public class TestBase {
     public void init() {
 //    driver = new InternetExplorerDriver();
         driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
         driver.manage().window().maximize();
 
     }

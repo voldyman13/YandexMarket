@@ -1,5 +1,4 @@
 package com.company.qa.manager;
-
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -10,11 +9,13 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class MarketPage extends PageBase{
-
+    @FindBy (xpath = "//div[contains(text(),'Маркет')]")
+    WebElement marketLink;
     @FindBy (id = "glpricefrom")
-    WebElement priceFromField; ;
+    WebElement priceFromField;
     @FindBy (id = "glpriceto")
     WebElement priceToField;
     @FindBy (id = "header-search")
@@ -37,10 +38,10 @@ public class MarketPage extends PageBase{
     }
 
     @Step
-    public void switchToNewTab() {
+    public void switchToNewTab(int index) {
         ArrayList<String> windows = new ArrayList<>(driver.getWindowHandles());
         if (!windows.isEmpty()) {
-            driver.switchTo().window(windows.get(1));
+            driver.switchTo().window(windows.get(index));
         }
     }
 
@@ -72,18 +73,28 @@ public class MarketPage extends PageBase{
 
     @Step("Brand: {brand}")
     public void selectSubCategory(String subCategory) {
-        driver.findElement(By.xpath("//a[contains(text(), '" + subCategory + "')]")).click();
+        driver.findElement(By.xpath("//a[contains(text(),'" + subCategory + "')]")).click();
     }
 
     @Step("Category: {category}")
     public void selectCategory(String category) {
-        driver.findElement(By.xpath("//span[contains(text(), '" + category + "')]")).click();
+        driver.findElement(By.xpath("//span[contains(text(),'" + category + "')]")).click();
     }
 
     @Step("Price range: {priceFrom, priceTo}")
     public void setPriceRange(String priceFrom, String priceTo) {
         priceFromField.sendKeys(priceFrom);
         priceToField.sendKeys(priceTo);
+    }
+    @Step
+    public void goToMarket() {
+        marketLink.click();
+        switchToNewTab(1);
+    }
+    @Step
+    public void exit() {
+        driver.close();
+        switchToNewTab(0);
     }
 
 }

@@ -12,13 +12,11 @@ public abstract class PageBase {
         this.driver = driver;
     }
 
-    @Step
-    public void goToMarket() {
-        driver.findElement(By.xpath("//div[contains(text(),'Маркет')]")).click();
-    }
+
 
     @Step
     public void openSite(String url) {
         driver.get(url);
     }
+
 }
