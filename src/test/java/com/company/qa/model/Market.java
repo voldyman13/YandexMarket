@@ -7,14 +7,16 @@ public class Market {
     private String brand;
     private Integer itemNumber;
 
-    public Market(String category, String subCategory, String priceFrom, String priceTo, String brand, Integer itemNumber) {
-        this.category = category;
-        this.subCategory = subCategory;
-        this.priceFrom = priceFrom;
-        this.priceTo = priceTo;
-        this.brand = brand;
-        this.itemNumber = itemNumber;
-    }
+
+//    public Market(String category, String subCategory, String priceFrom, String priceTo, String brand, Integer itemNumber) {
+//        this.category = category;
+//        this.subCategory = subCategory;
+//        this.priceFrom = priceFrom;
+//        this.priceTo = priceTo;
+//        this.brand = brand;
+//        this.itemNumber = itemNumber;
+//    }
+
     public Market() {}
 
         @Override
@@ -30,50 +32,59 @@ public class Market {
     }
 
     public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
+        return this.category;
     }
 
     public String getSubCategory() {
-        return subCategory;
-    }
-
-    public void setSubCategory(String subCategory) {
-        this.subCategory = subCategory;
+        return this.subCategory;
     }
 
     public String getPriceFrom() {
-        return priceFrom;
-    }
-
-    public void setPriceFrom(String priceFrom) {
-        this.priceFrom = priceFrom;
+        return this.priceFrom;
     }
 
     public String getPriceTo() {
-        return priceTo;
-    }
-
-    public void setPriceTo(String priceTo) {
-        this.priceTo = priceTo;
+        return this.priceTo;
     }
 
     public String getBrand() {
-        return brand;
+        return this.brand;
     }
 
-    public void setBrand(String brand) {
+    public Integer getItemNumber() {
+        return this.itemNumber;
+    }
+
+    public Market setCategory(String category) {
+        this.category = category;
+        return this;
+    }
+
+    public Market setSubCategory(String subCategory) {
+        this.subCategory = subCategory;
+        return this;
+
+    }
+
+    public Market setPriceFrom(String priceFrom) {
+        this.priceFrom = priceFrom;
+        return this;
+
+    }
+
+    public Market setPriceTo(String priceTo) {
+        this.priceTo = priceTo;
+        return this;
+    }
+
+    public Market setBrand(String brand) {
         this.brand = brand;
+        return this;
     }
 
-    public Integer getItem() {
-        return itemNumber;
-    }
 
-    public void setItem(Integer itemNumber) {
+    public Market setItemNumber(Integer itemNumber) {
         this.itemNumber = itemNumber;
+        return this;
     }
 }

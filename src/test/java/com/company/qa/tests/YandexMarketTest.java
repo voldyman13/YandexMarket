@@ -19,22 +19,23 @@ import java.util.List;
 
 
 public class YandexMarketTest extends TestBase {
-    private MarketPage market;
+    private MarketPage marketPage;
     private PageBase pageBase;
 
     String url = "https://yandex.ru/";
-    String category = "Компьютеры";
-    String subCategory = "Планшеты";
-    String brand = "Apple";
-    String priceFrom = "20000";
-    String priceTo = "35000";
-    Integer itemNumber = 2;
+//    String category = "Компьютеры";
+//    String subCategory = "Планшеты";
+//    String brand = "Apple";
+//    String priceFrom = "20000";
+//    String priceTo = "35000";
+//    Integer itemNumber = 2;
 
 
     @BeforeMethod(alwaysRun = true)
     public void initPageObjects() {
-        market = PageFactory.initElements(driver, MarketPage.class);
+        marketPage = PageFactory.initElements(driver, MarketPage.class);
     }
+
     @DataProvider
     public Iterator<Object[]> marketPositive() throws IOException {
         List<Object[]> list = new ArrayList<>();
@@ -49,27 +50,25 @@ public class YandexMarketTest extends TestBase {
                     .setPriceFrom(split[2])
                     .setPriceTo(split[3])
                     .setBrand(split[4])
-                    .setItemNumber(split[5])});
+                    .setItemNumber(Integer.parseInt(split[5]))});
             line= reader.readLine();
         }
         return list.iterator();
     }
 
-
-
     @Test(dataProvider = "marketPositive")
-    public void yandexMarketTest(Market mObj) {
-        market.openSite(url);
-        market.goToMarket();
-        market.switchToNewTab();
-        market.selectCategory(category);
-        market.selectSubCategory(subCategory);
-        market.setPriceRange(priceFrom, priceTo);
-        market.setBrandCheckboxOn(brand);
-        String itemName = market.getItemName(itemNumber, brand);
-        market.findProductByName(itemName);
-        market.submit();
-        String productName = market.getProductName(1, subCategory);
+    public void yandexMarketTest(Market market) {
+        marketPage.openSite(url);
+        marketPage.goToMarket();
+        marketPage.switchToNewTab();
+        marketPage.selectCategory(market.getCategory());
+        marketPage.selectSubCategory(market.getSubCategory());
+        marketPage.setPriceRange(market.getPriceFrom(), market.getPriceTo());
+        marketPage.setBrandCheckboxOn(market.getBrand());
+        String itemName = marketPage.getItemName(market.getItemNumber(), market.getBrand());
+        marketPage.findProductByName(itemName);
+        marketPage.submit();
+        String productName = marketPage.getProductName(1, market.getSubCategory());
         Assert.assertEquals(productName, itemName);
     }
 }
