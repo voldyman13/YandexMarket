@@ -1,1 +1,0 @@
-{"uuid":"56678961-f185-4fab-be31-1b3f61607fa1","name":"com.company.qa.test.TestBase.start","description":"","start":1602683737950,"stop":1602683744072,"children":["9c221847-208a-4ddc-b579-4e868581b167"],"befores":[{"name":"start","status":"passed","stage":"finished","description":"","start":1602683737951,"stop":1602683744068}]}

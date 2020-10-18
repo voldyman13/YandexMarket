@@ -1,1 +1,0 @@
-{"uuid":"bacf8ed5-14ef-41f5-8c26-d84322b20361","name":"com.company.qa.test.YandexMarketTest1.tearDown","description":"","start":1602700757706,"stop":1602700759915,"children":["78b8d7c1-e7ec-4bfb-acc7-9f6562127e6c"],"afters":[{"name":"tearDown","status":"passed","stage":"finished","description":"","start":1602700757717,"stop":1602700759915}]}

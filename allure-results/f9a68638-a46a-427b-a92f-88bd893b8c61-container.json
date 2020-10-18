@@ -1,1 +1,0 @@
-{"uuid":"f9a68638-a46a-427b-a92f-88bd893b8c61","name":"com.company.qa.test.YandexMarketTest1.start","description":"","start":1602700743911,"stop":1602700756122,"children":["78b8d7c1-e7ec-4bfb-acc7-9f6562127e6c"],"befores":[{"name":"start","status":"passed","stage":"finished","description":"","start":1602700743912,"stop":1602700756119}]}
