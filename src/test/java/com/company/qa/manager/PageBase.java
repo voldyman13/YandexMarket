@@ -4,7 +4,7 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 
 
-public abstract class PageBase {
+public class PageBase {
     protected WebDriver driver;
 
     public PageBase(WebDriver driver) {

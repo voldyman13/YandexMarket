@@ -1,8 +1,8 @@
 package com.company.qa.tests;
 
 import com.company.qa.manager.MarketPage;
-import com.company.qa.manager.PageBase;
 import com.company.qa.model.Market;
+import io.qameta.allure.Description;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
@@ -18,10 +18,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-
 public class YandexMarketTest extends TestBase {
     private MarketPage marketPage;
-    private PageBase pageBase;
 
     String url = "https://yandex.ru/";
 
@@ -29,7 +27,6 @@ public class YandexMarketTest extends TestBase {
     public void initPageObjects() {
         marketPage = PageFactory.initElements(driver, MarketPage.class);
         marketPage.openSite(url);
-
     }
 
     @DataProvider
@@ -53,6 +50,7 @@ public class YandexMarketTest extends TestBase {
     }
 
     @Test(dataProvider = "marketPositive")
+    @Description(value = "Step-by-step verification of the search for a specific product")
     public void yandexMarketTest(Market market) {
         marketPage.goToMarket();
         marketPage.selectCategory(market.getCategory());
